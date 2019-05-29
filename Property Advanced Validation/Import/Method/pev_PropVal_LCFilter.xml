@@ -1,0 +1,32 @@
+﻿<AML>
+ <Item type="Method" id="7E3CF7A09C2B433AAEB93CA9A5A0411D" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// read from parent Item
+var itemTypeId = parent.thisItem.getProperty("item_type_id","");
+if (itemTypeId === "") { return; }
+
+var aml = "";
+var lifeCycleMaps = this.newItem("");
+lifeCycleMaps.loadAML("<Item type='ItemType Life Cycle' action='get' select='source_id(name),related_id(name)' ><source_id>"+itemTypeId+"</source_id></Item>");
+lifeCycleMaps = lifeCycleMaps.apply();
+var LCFilter ="";
+for (var i=0; i<lifeCycleMaps.getItemCount(); i++) {
+    var lcName = lifeCycleMaps.getItemByIndex(i).getPropertyItem("related_id").getProperty("name","");
+    if (i=== 0 && lcName !== "") {
+        LCFilter += lcName;
+    }
+    if (i>0 && lcName !== "") {
+        LCFilter += "|" + lcName;
+    }
+}
+
+//create new Object
+var Filter = {};
+//Assign Filter
+Filter["name"]={filterValue:LCFilter, isFilterFixed:false};
+return Filter;]]></method_code>
+  <method_type>JavaScript</method_type>
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <name>pev_PropVal_LCFilter</name>
+ </Item>
+</AML>

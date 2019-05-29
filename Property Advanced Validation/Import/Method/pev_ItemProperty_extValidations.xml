@@ -1,0 +1,404 @@
+﻿<AML>
+ <Item type="Method" id="D14BFE5A636841A9999353DE273E1C3F" action="add">
+  <comments>onAfterUpdate. extended Validation - based on configured Rules - optional: onBeforePromote AND onAfterPromote</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// can be used on any ItemType
+// Server Events:
+// 'onAfterUpdate'  must be called from last Event of this type
+// 'onBeforePromote AND onAfterPromote'  --> enables checking during promotion to next state
+
+// NOTE:
+// if no relevant configuration for property validations found for this ItemType, no additional checks will be applied (no Errors)
+
+// expected values are expectd to be a semi-colon separated list.
+
+// +++ Main
+//System.Diagnostics.Debugger.Launch();System.Diagnostics.Debugger.Break();
+
+string idlist = this.getAttribute("idlist","");
+Item thisItem = null;
+bool isPromoted = false;
+if (idlist != "") {
+    // assumption:  this is comming from an onBeforePromote or onAfterPromote Event !!!
+    
+    string itemId = idlist.Substring(0,32);
+    thisItem = this.getInnovator().getItemById(this.getType(),itemId);
+    string thisItemState = thisItem.getProperty("state","");
+    
+    string beforeState = (string)RequestState["beforeState"];
+    if (beforeState == null || beforeState == "") {
+        // in this case: thisItemState is from "onBeforePromote"
+        RequestState.Add("beforeState", thisItemState);
+        return this;  // nothing to do,  wait for next call from "onAfterPromote"
+    }
+    else {
+        // in this case: thisItemState is from "onAfterPromote"
+        RequestState.Remove("beforeState");
+    }
+    isPromoted = true;
+}
+else {
+    thisItem = this;
+}
+
+
+// get "Active" validation rules for this ItemType
+string itemClassification = thisItem.getProperty("classification","");
+string aml = "";
+aml += "<Item type='pev_ItemType_PropertyRule' action='get' ";
+aml += "select='item_type_id,item_type_label,item_type_stages_id,default_error_message,error_message_header,success_message,description'>";
+aml += "  <state>Active</state>";
+if (itemClassification != "") {
+    aml += "  <item_type_classification>"+itemClassification+"</item_type_classification>";
+}
+aml += "  <item_type_id>";
+aml += "    <Item type='ItemType' action='get' select='id' ><name>"+thisItem.getType()+"</name>";
+aml += "    </Item>";
+aml += "  </item_type_id>";
+aml += "  <Relationships>";
+aml += "   <Item type='pev_Property_ValidationRule' action='get' />";
+aml += "  </Relationships>";
+aml += "</Item>";
+
+Item itemTypePropRule = this.newItem("");
+itemTypePropRule.loadAML(aml);
+itemTypePropRule = itemTypePropRule.apply();
+if (itemTypePropRule.getItemCount() <= 0) {return this;}
+
+string item_type_stages_id = itemTypePropRule.getProperty("item_type_stages_id","invalid");
+if (item_type_stages_id == "") {return this;}
+
+aml = "<Item type='pev_ItemType_Stages' action='get' id='"+item_type_stages_id+"' ";
+aml += "select='item_type_id,name'>";
+aml += "  <Relationships>";
+aml += "   <Item type='pev_ItemType_Stages_Mapping' action='get' />";
+aml += "  </Relationships>";
+aml += "</Item>";
+Item itemTypeStagesMappings = this.newItem("");
+itemTypeStagesMappings.loadAML(aml);
+itemTypeStagesMappings = itemTypeStagesMappings.apply();
+if (itemTypeStagesMappings.getItemCount() <= 0) {return this;}
+
+// read from PropertyRule item
+string successMessage = itemTypePropRule.getProperty("success_message","");
+string defaultErrorMessage = itemTypePropRule.getProperty("default_error_message","");
+string itemTypeLabel = itemTypePropRule.getProperty("item_type_label","");
+
+// read from thisItem
+string itemKeyedName = thisItem.getProperty("keyed_name","");
+string itemState = thisItem.getProperty("state","");
+string itemStateLabel = thisItem.getProperty("current_state_label","");
+if (itemStateLabel == "") {itemStateLabel = itemState;}
+
+string aggregatedErrorMessages = "";
+
+// run validation on actual propValues from thisItem
+Item propValidationRules = itemTypePropRule.getRelationships("pev_Property_ValidationRule");
+
+for (int i=0; i<propValidationRules.getItemCount(); i++) {
+	Item propValidationRule = propValidationRules.getItemByIndex(i);
+	
+	bool runCheck = true;
+	if ((propValidationRule.getProperty("check_promotion_to_stages","0") == "0") && isPromoted) {
+	    runCheck = false;
+	}
+    if (runCheck) {
+    	string relshipName = propValidationRule.getProperty("item_relationship_name","");
+    	Item contextItem = this;
+    	if (isPromoted) {
+    	    // retrieve context item (this only contains type and ID for promote events)
+    	    contextItem = this.getInnovator().getItemById(this.getType(), this.getAttribute("idlist"));
+    	}
+    	
+    	if (relshipName =="") {
+    		string errMessage = runPropertyValidation (itemTypePropRule, itemTypeStagesMappings, propValidationRule, defaultErrorMessage, itemTypeLabel, itemState, itemStateLabel, itemKeyedName, contextItem, "");
+    		if (errMessage != "") {
+    			aggregatedErrorMessages += " \n " +errMessage;
+    		}
+    	}
+    }
+}
+
+// run validation on actual propValues from thisItem's relationships
+List<string> relshipNames = new List<string>();
+for (int i=0; i<propValidationRules.getItemCount(); i++) {
+	string relshipName = propValidationRules.getItemByIndex(i).getProperty("item_relationship_name","");
+	if (relshipName != "" && !relshipNames.Contains(relshipName)) {relshipNames.Add(relshipName);}
+}
+foreach (string relshipName in relshipNames) {
+	// load relationship items into context
+	string qry = "<Item type='"+relshipName+"' action='get'  >";
+	qry += "<source_id>"+thisItem.getID()+"</source_id>";
+	qry += "</Item>";
+
+	Item relshipItems = this.newItem("");
+	relshipItems.loadAML(qry);
+	relshipItems = relshipItems.apply();
+	
+	propValidationRules = itemTypePropRule.getItemsByXPath("//Item[@type='pev_Property_ValidationRule' and item_relationship_name='"+relshipName+"']");
+	string errMessage = "";
+	for (int i=0; i<propValidationRules.getItemCount(); i++) {
+		Item propValidationRule = propValidationRules.getItemByIndex(i);
+		
+    	bool runCheck = true;
+    	if ((propValidationRule.getProperty("check_promotion_to_stages","0") == "0") && isPromoted) {
+    	    runCheck = false;
+    	}
+        if (runCheck) {
+    		for (int r=0; r<relshipItems.getItemCount(); r++) {
+    			errMessage = runPropertyValidation (itemTypePropRule, itemTypeStagesMappings, propValidationRule, defaultErrorMessage, itemTypeLabel, itemState, itemStateLabel, itemKeyedName, relshipItems.getItemByIndex(r), relshipName);
+    
+    		}
+    		if (errMessage != "") {
+    			// take last error message of this check
+    			aggregatedErrorMessages += " \n " +errMessage;
+    		}
+        }
+	}
+}
+
+// return aggregated error messages;
+if (aggregatedErrorMessages != "") {
+    string errorMessageHeader = itemTypePropRule.getProperty("error_message_header","");
+    if (errorMessageHeader != "") {
+        aggregatedErrorMessages = resolveMessage(errorMessageHeader, itemTypeLabel, itemStateLabel, itemKeyedName, null, null, null) + " \n " + aggregatedErrorMessages;
+    }
+	return this.getInnovator().newError(aggregatedErrorMessages);
+}
+
+// success
+return this.getInnovator().newResult(resolveMessage(successMessage, null, itemStateLabel, null, null, null, null));
+}
+
+// ^^^ Main
+
+
+// function:
+string getLCstatesOfItemTypeStages (string ITstages, Item itemTypePropRule, Item itemTypeStagesMappings) {
+	List<string> lcStates = new List<string>();
+	
+	string[] ITStages_array = ITstages.Split(',');
+	for (int i=0; i<ITStages_array.Length; i++) {
+	    if (ITStages_array[i] != "" ) {
+    		Item ITStatesMapping = itemTypeStagesMappings.getItemsByXPath("//Item[@type='pev_ItemType_Stages_Mapping' and name='"+ITStages_array[i]+"']");
+    		
+    		if (ITStatesMapping.getItemCount() == 1) {	
+        		string[] ITlcStates_array = ITStatesMapping.getProperty("life_cycle_states","").Split(',');
+        		for (int j=0; j<ITlcStates_array.Length && ITlcStates_array[0] != ""; j++) {
+        			if (!lcStates.Contains(ITlcStates_array[j])) {lcStates.Add(ITlcStates_array[j]);}
+        		}
+    		}
+	    }
+	}
+	return String.Join(",",lcStates);
+}
+
+// function:
+string runPropertyValidation (Item itemTypePropRule, Item itemTypeStagesMappings, Item propValidationRule, string defaultErrorMessage, string itemTypeLabel, string itemState, string itemStateLabel, string itemKeyedName, Item propValueItem, string relShipName) {
+	string errMessage = "";
+
+	string errorMessageTemplate = propValidationRule.getProperty("error_message","");
+	if (errorMessageTemplate == ""){ errorMessageTemplate = defaultErrorMessage;}
+
+	string propName = propValidationRule.getPropertyAttribute("item_property_id","keyed_name","");
+	string propITStages = ","+propValidationRule.getProperty("item_type_stages","")+",";
+	
+	string propLCStates = getLCstatesOfItemTypeStages(propITStages,itemTypePropRule, itemTypeStagesMappings);
+	
+	// only run check if this property rule is defined for this item's state
+	if (propName != ""  && itemState != "" && propLCStates.IndexOf(itemState) >= 0) {
+		string propLabel = propValidationRule.getProperty("item_property_label","");
+		if (propLabel == "") {propLabel= propName;}
+		string dataType = propValidationRule.getProperty("item_property_datatype","");
+		string dataSource = propValidationRule.getProperty("item_property_datatsource","");
+		string dataPattern = propValidationRule.getProperty("item_property_datatpattern","");
+		string propExpectedValues = propValidationRule.getProperty("property_expected_values","");
+		string propTabLabel = propValidationRule.getProperty("item_property_tab_label","");
+		
+		// do the check
+    	bool bPassedCheck = true;
+    	string propValue = "";
+    	
+    	switch (dataType) {
+    		case "text":
+    		case "string":
+    			propValue = propValueItem.getProperty(propName,"");
+    			bPassedCheck = checkPropertyStringTextListValue (propValue, dataPattern, propExpectedValues );
+    			break;
+    		case "integer":
+    			propValue = propValueItem.getProperty(propName,"");
+    			bPassedCheck = checkPropertyIntValue (propValue, dataPattern, propExpectedValues );
+    			break;
+    		case "decimal":
+    		case "float":
+    			propValue = propValueItem.getProperty(propName,"");
+    			bPassedCheck = checkPropertyDecimalValue (propValue, dataPattern, propExpectedValues );
+    			break;
+    		case "list":
+    			propValue = propValueItem.getProperty(propName,"");
+    			bPassedCheck = checkPropertyStringTextListValue (propValue, dataPattern, propExpectedValues );
+    			break;
+    		case "date":
+    			propValue = propValueItem.getProperty(propName,"");
+    			bPassedCheck = checkPropertyDateValue (propValue, dataPattern, propExpectedValues );
+    			break;
+    		case "item":
+    			propValue = propValueItem.getPropertyAttribute(propName,"keyed_name","");
+    			bPassedCheck = checkPropertyItemValue (propValue, dataPattern, propExpectedValues );
+    			break;
+    	}
+		
+		if (!bPassedCheck) {
+			if (propTabLabel != "") {errMessage ="["+propTabLabel+"] : ";}
+			errMessage += resolveMessage (errorMessageTemplate, itemTypeLabel, itemStateLabel, itemKeyedName, propLabel, propValue, propExpectedValues);
+		}
+	}
+	return errMessage;
+}
+
+// function: works for string, text, and list values  (but not for multi-lingual strings)
+bool checkPropertyStringTextListValue (string propValue, string dataPattern, string propExpectedValues ) {
+	string[] propExpectedValues_array = propExpectedValues.Split(';');
+	if (propValue == "") {
+		if (propExpectedValues_array[0] == "" || propExpectedValues_array[0] == "not null") {return false;}
+	}
+	else {
+	    if (propExpectedValues == "not null") { return true;}
+	    
+	    bool matchFound = false;
+		for (int i=0; i<propExpectedValues_array.Length && matchFound == false ; i++) {
+		    if (propExpectedValues_array[i] == propValue) {matchFound = true;}
+		}
+		return matchFound;
+	}
+	return true;
+}
+
+// function: (support <,<=,>,>=,<> operators)
+bool checkPropertyIntValue (string propValue, string dataPattern, string propExpectedValues ) {
+	if (propValue == "") {
+		if (propExpectedValues == "" || propExpectedValues == "not null") {return false;}
+	}
+	else {
+	    if (propExpectedValues == "not null") { return true;}
+	    
+	    // apply condition, if found
+	    string condition = "";
+	    if (propExpectedValues.Substring(0,2) != "<>") {
+    	    if (propExpectedValues.Substring(0,1) == ">") {
+    	        condition = ">";
+                propExpectedValues = propExpectedValues.Substring(1,propExpectedValues.Length-1);
+    	        if (propExpectedValues.Substring(0,1) == "=") {
+                    propExpectedValues = propExpectedValues.Substring(1,propExpectedValues.Length-1);
+    	            condition = ">=";
+    	        }
+    	    }
+    	    if (propExpectedValues.Substring(0,1) == "<") {
+    	        condition = "<";
+                propExpectedValues = propExpectedValues.Substring(1,propExpectedValues.Length-1);
+    	        if (propExpectedValues.Substring(0,1) == "=") {
+                    propExpectedValues = propExpectedValues.Substring(1,propExpectedValues.Length-1);
+    	            condition = "<=";
+    	        }
+    	    }
+	    }
+	    else {
+            propExpectedValues = propExpectedValues.Substring(2,propExpectedValues.Length-2);
+	    }
+	    propExpectedValues = propExpectedValues.Replace(" ","");
+	    int propExpectedIntValue;
+        bool parsed = Int32.TryParse(propExpectedValues, out propExpectedIntValue);
+        if (!parsed) { return false;}
+        
+	    int propIntValue;
+        parsed = Int32.TryParse(propValue, out propIntValue);
+        
+	    switch (condition) {
+	        case ">":
+	            if (propIntValue <= propExpectedIntValue) {return false;}
+	            break;
+	        case ">=":
+	            if (propIntValue < propExpectedIntValue) {return false;}
+	            break;
+	        case "<":
+	            if (propIntValue >= propExpectedIntValue) {return false;}
+	            break;
+	        case "<=":
+	            if (propIntValue > propExpectedIntValue) {return false;}
+	            break;
+	        case "<>":
+	            if (propIntValue > propExpectedIntValue) {return false;}
+	            break;
+	        default:
+	            // exact match
+	            if (propIntValue != propExpectedIntValue) {return false;}
+	            break;
+	    }
+	}
+	return true;
+}
+
+// function:
+bool checkPropertyDecimalValue (string propValue, string dataPattern, string propExpectedValues ) {
+    //## TODO .. check for decimal value in neutral formats
+    //## TODO .. alow  "<,>" oerators
+	if (propValue == "") {
+		if (propExpectedValues == "" || propExpectedValues == "not null") {return false;}
+	}
+	else {
+	    if (propExpectedValues == "not null") { return true;}
+	}
+	return true;
+}
+
+// function:
+bool checkPropertyDateValue (string propValue, string dataPattern, string propExpectedValues ) {
+    //## TODO .. check for exact Date value in neutral formats
+    //## TODO .. alow  keyword [today]  and "+ or -" as number of days.
+    //## TODO .. alow  "<,>" oerators
+	if (propValue == "") {
+		if (propExpectedValues == "" || propExpectedValues == "not null") {return false;}
+	}
+	else {
+	    if (propExpectedValues == "not null") { return true;}
+	}
+	return true;
+}
+
+// function:
+bool checkPropertyItemValue (string propValue, string dataPattern, string propExpectedValues ) {
+	if (propValue == "") {
+		if (propExpectedValues == "" || propExpectedValues == "not null") {return false;}
+	}
+	else {
+	    if (propExpectedValues == "not null") { return true;}
+	}
+	return true;
+}
+
+// function: resolve Error Message
+string resolveMessage (string errorMessageTemplate, string itemTypeLabel, string itemStateLabel, string itemKeyedName, string propLabel, string propValue, string propExpectedValues ) {
+	// resolve these keywords.	
+	// {propLabel} --> propLabel
+	// {propValue} --> propValue
+	// {itemKeyedName} --> itemKeyedName
+	// {itemTypeLabel} --> itemTypeLabel
+	// {itemStateLabel} --> itemStateLabel
+
+	string errMessage = errorMessageTemplate;
+	if (propLabel != null) {errMessage = errMessage.Replace("{propLabel}", propLabel);}
+	if (propValue != null) {errMessage = errMessage.Replace("{propValue}", propValue);}
+	if (propExpectedValues != null) {errMessage = errMessage.Replace("{propExpectedValues}", propExpectedValues);}
+	if (itemKeyedName != null) {errMessage = errMessage.Replace("{itemKeyedName}", itemKeyedName);}
+	if (itemTypeLabel != null) {errMessage = errMessage.Replace("{itemTypeLabel}", itemTypeLabel);}
+	if (itemStateLabel != null) {errMessage = errMessage.Replace("{itemStateLabel}", itemStateLabel);}
+	
+	return errMessage;
+}
+
+void endOfMethod() {]]></method_code>
+  <method_type>C#</method_type>
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <name>pev_ItemProperty_extValidations</name>
+ </Item>
+</AML>

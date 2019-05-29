@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Method" id="E0E771E5DB62457EA2429DBBDE5C3A8D" action="add">
+  <comments />
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[string KN = "--";
+Item thisItem = this.getInnovator().getItemById(this.getType(), this.getID());
+if (this.getProperty("item_type_id","") != "") {
+    KN = "Validations: " +thisItem.getProperty("item_type_label","--");
+}
+this.setProperty("keyed_name", KN);
+
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <name>pev_setKN_ItemType_PropertyRule</name>
+ </Item>
+</AML>

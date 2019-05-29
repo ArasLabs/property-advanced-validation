@@ -1,0 +1,63 @@
+﻿<AML>
+ <Item type="Method" id="E3BD70E561054DCBB40A69CB9690DE6E" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[//debugger;
+var targetColumnIndex = colNumber;
+if (targetColumnIndex < 0) { top.aras.AlertError("Error: Column not found"); return; }
+if (!gridApplet) { return; }
+
+// read from parent Item
+var itemTypeId = parent.thisItem.getProperty("item_type_id","");
+if (itemTypeId === "") { return; }
+itemTypeName = parent.thisItem.getPropertyAttribute("item_type_id","keyed_name","");
+    
+// Get relationItem
+var temp = parent.thisItem.getItemsByXPath("//Relationships/Item[@id='"+relationshipID+"']");
+var relItm = top.aras.newIOMItem("");
+relItm.loadAML(temp.node.xml);
+var lifcCylceId = relItm.getProperty("item_life_cycle_id","");
+
+// Get defined ItemType stages from relationship. To be used as list values
+var aml = "";
+aml +="<Item type='RelationshipType' action='get' select='id,name,source_id'>";
+aml +="<source_id>";
+aml +=" <Item type='ItemType' action='get' select='id' >";
+aml +="  <name>"+itemTypeName+"</name>";
+aml +=" </Item>";
+aml +="</source_id>";
+aml +="</Item>";
+
+var listValuesItems = top.aras.newIOMItem("");
+listValuesItems.loadAML(aml);
+listValuesItems = listValuesItems.apply();
+if (listValuesItems.getItemCount()<1 ) {
+    top.aras.AlertError("Item Type '"+itemTypeName+"' does not have any Relationships defined !");
+    return;
+}
+
+// Create arrays for the list values (ids) and labels (names)
+var labelArray = [];
+var idArray = [];
+//var labelArray = new Array(" ");  // add empty list item at top
+//var idArray = new Array(" ");     // add empty list item at top
+for (var k=0; k<listValuesItems.getItemCount(); k++) {
+  var id = listValuesItems.getItemByIndex(k).getProperty("name","");
+  if (id !== "") {
+      var label = listValuesItems.getItemByIndex(k).getProperty("label","");
+      if (label === ""){label = id;}
+      idArray.push(id);
+      labelArray.push(label); 
+    }
+}
+
+// Add the dropdown to the cell
+var delim = gridApplet.Delimeter;
+//gridApplet.cells(relationshipID,targetColumnIndex).setEditType(3);  // MultiVal List
+gridApplet.cells(relationshipID,targetColumnIndex).setEditType(2);  // Combobox
+var field = grid.columns_Experimental.get(targetColumnIndex, "name");
+gridApplet.columns_Experimental.set( field, "comboList", idArray, labelArray); ]]></method_code>
+  <method_type>JavaScript</method_type>
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <name>pev_PropVal_Relship_dropdown</name>
+ </Item>
+</AML>

@@ -1,0 +1,51 @@
+﻿<AML>
+ <Item type="Method" id="561C6F15877C4C079DBDF74DD72AFE4B" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[//debugger;
+var targetColumnIndex = colNumber;
+if (targetColumnIndex < 0) { top.aras.AlertError("Error: Column not found"); return; }
+if (!gridApplet) { return; }
+
+// read from parent Item
+var itemTypeId = parent.thisItem.getProperty("item_type_id","");
+if (itemTypeId === "") { return; }
+
+var itemTypeName = parent.thisItem.getPropertyAttribute("item_type_id","keyed_name","");
+
+// Get relationItem
+var temp = parent.thisItem.getItemsByXPath("//Relationships/Item[@id='"+relationshipID+"']");
+var relItm = top.aras.newIOMItem("");
+relItm.loadAML(temp.node.xml);
+var lifcCylceId = relItm.getProperty("item_life_cycle_id","");
+
+// try to read from loaded parent item
+var listValuesItems = parent.thisItem.getRelationships("pev_ItemType_Stages_Mapping");
+if (listValuesItems.isError()||listValuesItems.getItemCount()<1 ) {
+    top.aras.AlertError("Item Type Stages (& Mapping) are not defined !");
+    return;
+}
+
+// Create arrays for the list values (ids) and labels (names)
+var labelArray = [];
+var idArray = [];
+//var labelArray = new Array(" ");  // add empty list item at top
+//var idArray = new Array(" ");     // add empty list item at top
+for (var k=0; k<listValuesItems.getItemCount(); k++) {
+  var id = listValuesItems.getItemByIndex(k).getProperty("name","");
+  if (id !== "") {
+      var label = id;
+      idArray.push(id);
+      labelArray.push(label); 
+    }
+}
+
+// Add the dropdown to the cell
+var delim = gridApplet.Delimeter;
+gridApplet.cells(relationshipID,targetColumnIndex).setEditType(3);  // MultiVal List
+//gridApplet.cells(relationshipID,targetColumnIndex).setEditType(2);  // Combobox
+var field = grid.columns_Experimental.get(targetColumnIndex, "name");
+gridApplet.columns_Experimental.set( field, "comboList", idArray, labelArray); ]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>pev_PropVal_PrevStages_dropdown</name>
+ </Item>
+</AML>

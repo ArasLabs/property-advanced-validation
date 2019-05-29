@@ -1,0 +1,67 @@
+﻿<AML>
+ <Item type="Method" id="8B72814C4C0243DBB5CC3B255CBD588A" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Result must contain propterty "stage_definitions" in JSON serialized format like this:
+// called from stage_progress HTML field on forms (client side)
+
+//System.Diagnostics.Debugger.Launch();System.Diagnostics.Debugger.Break();
+
+string aml = "<Item type='pev_ItemType_Stages' action='get' select='item_type_id,item_type_label,default_error_message,error_message_header,description'>";
+aml += "  <item_type_id>";
+aml += "   <Item type='ItemType' action='get' select='id'><name>"+this.getType()+"</name></Item>";
+aml += "  </item_type_id>";
+//aml += "  <state>Active</state>";
+aml += "  <Relationships>";
+aml += "   <Item type='pev_ItemType_Stages_Mapping' action='get' orderBy='sort_order' />";
+aml += "  </Relationships>";
+aml += "</Item>";
+Item ItemType_Stages = this.newItem("");
+ItemType_Stages.loadAML(aml);
+ItemType_Stages = ItemType_Stages.apply();
+if (ItemType_Stages.isError()) {return ItemType_Stages;}
+if (ItemType_Stages.getItemCount() != 1) {return this;}
+
+Item ItemType_StagesMappings = ItemType_Stages.getItemsByXPath("//Item[@type='pev_ItemType_Stages_Mapping']");
+
+string jsonData = "[";
+
+string sepChar = ",";
+for (int i=0; i<ItemType_StagesMappings.getItemCount(); i++) {
+  Item ItemType_StagesMapping = ItemType_StagesMappings.getItemByIndex(i);
+
+    if (i == ItemType_StagesMappings.getItemCount()-1) {sepChar = "";}
+  
+	string val = "";
+  
+    jsonData += "{";
+	val = ItemType_StagesMapping.getProperty("name","");
+    jsonData += "\"stage_name\":\""+val+"\",";
+	val = ItemType_StagesMapping.getProperty("sort_order","");
+    jsonData += "\"stage_progress_pos\":\""+val+"\",";
+	val = ItemType_StagesMapping.getProperty("swim_lane","1");
+    jsonData += "\"stage_swim_lane\":\""+val+"\",";
+	val = ItemType_StagesMapping.getProperty("previous_stages","");
+    jsonData += "\"previous_stages\":\""+val+"\",";
+	val = ItemType_StagesMapping.getProperty("label","");
+	if (val == "") {val = ItemType_StagesMapping.getProperty("name","");}
+	jsonData += "\"label\":\""+val+"\",";  
+	val = ItemType_StagesMapping.getProperty("life_cycle_states","");
+	jsonData += "\"mappedLCstates\":\""+val+"\"";
+	jsonData += "}"+sepChar;
+}
+jsonData += "]";
+
+// is mapping empty ?
+if (jsonData == "[]") {
+    return this.getInnovator().newError("Stages Mappings Definition missing for ItemType: '"+this.getType()+"'");
+}
+
+Item res = this.newItem("StageProgressDefinitions");
+res.setProperty("stage_definitions", jsonData);
+
+return res;]]></method_code>
+  <method_type>C#</method_type>
+  <owned_by_id keyed_name="Innovator Admin" type="Identity">DBA5D86402BF43D5976854B8B48FCDD1</owned_by_id>
+  <name>pev_GetItemTypeStagesProgressDef</name>
+ </Item>
+</AML>

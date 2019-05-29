@@ -1,0 +1,347 @@
+﻿<AML>
+ <Item type="Form" id="D92F42B1B7434CAB9ED362337090558B" action="add">
+  <category_form>0</category_form>
+  <height>280</height>
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>pev_ItemType_PropertyRule</name>
+  <Relationships>
+   <Item type="Body" id="A54CCFE040D84C26B859DB62C6FC2A80" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Form">D92F42B1B7434CAB9ED362337090558B</source_id>
+    <Relationships>
+     <Item type="Field" id="00B96EC530744F2FB53DBF6C0AD5BDA9" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Custom Validation Method (optional)</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="custom_method" type="Property">051EFC8BB8D74888BCA3612E52BD4E38</propertytype_id>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>250</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>620</x>
+      <y>90</y>
+      <name>custom_method</name>
+     </Item>
+     <Item type="Field" id="15F03629C40544D7840B849404BCF572" action="add">
+      <border_width>0</border_width>
+      <display_length>600</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>ml_string</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Default Error Message</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="default_error_message" type="Property">0C7581349B964846B5B50C3B34EC7CDF</propertytype_id>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>190</y>
+      <name>default_error_message</name>
+     </Item>
+     <Item type="Field" id="556E1E84D3D74E4DBA3482D49EFC0545" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Description</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="description" type="Property">DA6DC7D3B0A14E2E83E7C113C5F04EBC</propertytype_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>200</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>35</textarea_rows>
+      <x>190</x>
+      <y>90</y>
+      <name>description</name>
+     </Item>
+     <Item type="Field" id="F77E90610BBD414AAE9996BEA3DA4981" action="add">
+      <border_width>0</border_width>
+      <display_length>600</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>ml_string</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Error Message Header</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="error_message_header" type="Property">02FB21120C634D71A4DF0CB389434081</propertytype_id>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>300</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>150</y>
+      <name>error_message_header</name>
+     </Item>
+     <Item type="Field" id="4C02AF25A2E84AC1A545B14FF3B445F4" action="add">
+      <border_width>1</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <html_code><![CDATA[<p>{itemTypeLabel}</br>
+<p>{itemKeyedName}</br>
+<p>{itemStateLabel}</br>
+<p>{propLabel}</br>
+<p>{propValue}</br>
+<p>{propExpectedValues}</p>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">You can use Message Parameters:</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_stop>1</tab_stop>
+      <x>892</x>
+      <y>97</y>
+      <name>html_use_msg_params</name>
+     </Item>
+     <Item type="Field" id="3C206C6908714253804F78BF42C3E496" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="C22250E68B3B42DBAEB89B21EE25C2AF" action="add">
+      <border_width>0</border_width>
+      <display_length>300</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">ItemType Classification</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="item_type_classification" type="Property">CF281136E3704022B3AD1803B125A35B</propertytype_id>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>13</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>620</x>
+      <y>10</y>
+      <name>item_type_classification</name>
+     </Item>
+     <Item type="Field" id="80230993D51849DF85C80B181720C079" action="add">
+      <border_width>0</border_width>
+      <display_length>150</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Applies to ItemType</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="item_type_id" type="Property">3768315956E541DE9D905C4318373B12</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>10</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>390</x>
+      <y>10</y>
+      <name>item_type_id</name>
+     </Item>
+     <Item type="Field" id="083B8C18800146B18B69602EFE91121F" action="add">
+      <border_width>0</border_width>
+      <display_length>200</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>ml_string</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Item Type Label</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="item_type_label" type="Property">A0116A2E88EB40BA902966360F7C818D</propertytype_id>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>11</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>390</x>
+      <y>50</y>
+      <name>item_type_label</name>
+     </Item>
+     <Item type="Field" id="3AD2E88CD2CE445EA37416C60A85939F" action="add">
+      <border_width>0</border_width>
+      <display_length>200</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Item Type Stages Def</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="item_type_stages_id" type="Property">19A40BD5B05547A9854C325BAEA50312</propertytype_id>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>80</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>620</x>
+      <y>50</y>
+      <name>item_type_stages_id</name>
+     </Item>
+     <Item type="Field" id="907164D7ABDB4DF893546F645A5C66C1" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Owner</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>100</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>50</y>
+      <name>owned_by_id</name>
+     </Item>
+     <Item type="Field" id="09892A85E6BE4BA4936583EB706AAEC2" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Status</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>9</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      <name>state</name>
+     </Item>
+     <Item type="Field" id="2F0D9F7AAD85471FA508CC24D9E43B2B" action="add">
+      <border_width>0</border_width>
+      <display_length>600</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Success Message</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+      <propertytype_id keyed_name="success_message" type="Property">F9632CE0C28D4157BC653B6D3F31FD34</propertytype_id>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="A54CCFE040D84C26B859DB62C6FC2A80" type="Body">A54CCFE040D84C26B859DB62C6FC2A80</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>230</y>
+      <name>success_message</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="Field" id="907164D7ABDB4DF893546F645A5C66C1" action="edit">
+  <!-- Please note: this AML depends on the "pev_ItemType_PropertyRule" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>owned_by_id</name>
+    <source_id type="ItemType" keyed_name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="09892A85E6BE4BA4936583EB706AAEC2" action="edit">
+  <!-- Please note: this AML depends on the "pev_ItemType_PropertyRule" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>state</name>
+    <source_id type="ItemType" keyed_name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+</AML>

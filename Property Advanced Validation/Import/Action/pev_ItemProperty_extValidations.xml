@@ -1,0 +1,16 @@
+﻿<AML>
+ <Item type="Action" id="C3E6CC66A6AA4AD9894B132D6230043B" action="add">
+  <item_query>&lt;Item type="{@type}" id="{@id}" levels= "1" action="get" /&gt;</item_query>
+  <label xml:lang="en">Status Completeness Check</label>
+  <location>client</location>
+  <method keyed_name="pev_ItemProperty_extValidation_A" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>pev_ItemProperty_extValidation_A</name>
+   </Item>
+  </method>
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <target>none</target>
+  <type>item</type>
+  <name>pev_ItemProperty_extValidations</name>
+ </Item>
+</AML>

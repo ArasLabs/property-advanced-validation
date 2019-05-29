@@ -1,0 +1,168 @@
+﻿<AML>
+ <Item type="ItemType" id="0FB358B248D5438AAD74BDCABC06246B" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>1</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>PEV_ITEMTYPE_STAGES</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">ItemType Stages</label>
+  <label_plural xml:lang="en">ItemType Stages Definitions</label_plural>
+  <large_icon>../Images/LifeCycleMap.svg</large_icon>
+  <maxrecords>500</maxrecords>
+  <open_icon>../Images/LifeCycleMap.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>pev_ItemType_Stages</name>
+  <Relationships>
+   <Item type="Property" id="C891F42A5D8041CDA7F017D899116CDD" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>300</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>200</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <stored_length>255</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="A2B51312E1A8420FAF8B72FCB14ABC41" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source>
+     <Item type="Property" action="get" select="id">
+      <name>item_type_id</name>
+      <source_id>0FB358B248D5438AAD74BDCABC06246B</source_id>
+     </Item>
+    </data_source>
+    <data_type>foreign</data_type>
+    <foreign_property>
+     <Item type="Property" action="get" select="id">
+      <keyed_name>label</keyed_name>
+      <source_id>
+       <Item type="ItemType" action="get" select="id">
+        <name>ItemType</name>
+       </Item>
+      </source_id>
+     </Item>
+    </foreign_property>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Item Type Label</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>11</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <track_history>0</track_history>
+    <name>item_type_label</name>
+   </Item>
+   <Item type="View" id="AAEB1153F7D1492EA36561164FFBFA90" action="add">
+    <client>js</client>
+    <related_id keyed_name="pev_ItemType_Stages" type="Form">5AB61DA2601C4CBCA12A19A1D3F33637</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="3AEEE175BBD54742A90D8A44E8A04A8F" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="pev_setKN_ItemType_Stages" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>pev_setKN_ItemType_Stages</name>
+     </Item>
+    </related_id>
+    <server_event>GetKeyedName</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+   </Item>
+   <Item type="TOC Access" id="FC6F9F07317A4D46AFEA56AF9C59BA7E" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <category>Administration/Configuration</category>
+   </Item>
+   <Item type="Can Add" id="FAE02CED94854A01A13EA3F3F0ECE28B" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="2394F93C752F43019811BFF065ED7D37" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="0FB358B248D5438AAD74BDCABC06246B" action="edit">
+  <Relationships>
+   <Item type="Property" id="E0F586F7D658408DBC1F6564D089A609" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="ItemType" type="ItemType" name="ItemType">450906E86E304F55A34B3C0D65C097EA</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Applies to ItemType</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>item_type_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='0FB358B248D5438AAD74BDCABC06246B' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Owner</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>100</sort_order>
+    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

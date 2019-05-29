@@ -1,0 +1,99 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="55B0961648C74686A74E1FFE3B09C2BC" action="add">
+  <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+  <start_state keyed_name="In Work" type="Life Cycle State">F73BE12163064A97B59D209463FA2A28</start_state>
+  <name>pev_ItemType_PropertyRule</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="99BABBEC69D44269A2B687A7156F995E" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Active</label>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <x>194</x>
+    <y>56</y>
+    <name>Active</name>
+   </Item>
+   <Item type="Life Cycle State" id="F73BE12163064A97B59D209463FA2A28" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">In Work</label>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <x>40</x>
+    <y>59</y>
+    <name>In Work</name>
+   </Item>
+   <Item type="Life Cycle State" id="19C3454B8D5240419742D0B0B9245FC2" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Obsolete</label>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <x>334</x>
+    <y>54</y>
+    <name>Obsolete</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="26F696FDF8DB439689874F8325048996" action="add">
+    <from_state keyed_name="Active" type="Life Cycle State">99BABBEC69D44269A2B687A7156F995E</from_state>
+    <get_comment>0</get_comment>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <to_state keyed_name="Obsolete" type="Life Cycle State">19C3454B8D5240419742D0B0B9245FC2</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="FAF36A8553E1447A83C28EB7517CB703" action="add">
+    <from_state keyed_name="Active" type="Life Cycle State">99BABBEC69D44269A2B687A7156F995E</from_state>
+    <get_comment>0</get_comment>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <segments>120,23</segments>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <to_state keyed_name="In Work" type="Life Cycle State">F73BE12163064A97B59D209463FA2A28</to_state>
+    <x>-64</x>
+    <y>-40</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="07E024960E774D73854DC0FFFA8A7051" action="add">
+    <from_state keyed_name="In Work" type="Life Cycle State">F73BE12163064A97B59D209463FA2A28</from_state>
+    <get_comment>0</get_comment>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <role keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</role>
+    <segments />
+    <sort_order>512</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <to_state keyed_name="Active" type="Life Cycle State">99BABBEC69D44269A2B687A7156F995E</to_state>
+    <x>38</x>
+    <y>-11</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="0BB042064B3C4CDAA65DE56AD14DDAC1" action="add">
+    <from_state keyed_name="In Work" type="Life Cycle State">F73BE12163064A97B59D209463FA2A28</from_state>
+    <get_comment>0</get_comment>
+    <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</source_id>
+    <to_state keyed_name="Active" type="Life Cycle State">99BABBEC69D44269A2B687A7156F995E</to_state>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
