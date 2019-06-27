@@ -5,13 +5,13 @@
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
   <width>699</width>
-  <name>pev_ItemType_PropertyRule</name>
+  <name>pav_ItemType_PropertyRule</name>
   <Relationships>
    <Item type="Body" id="A54CCFE040D84C26B859DB62C6FC2A80" action="add">
     <bg_color>#FFFFFF</bg_color>
     <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="Form">D92F42B1B7434CAB9ED362337090558B</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="Form">D92F42B1B7434CAB9ED362337090558B</source_id>
     <Relationships>
      <Item type="Field" id="00B96EC530744F2FB53DBF6C0AD5BDA9" action="add">
       <border_width>0</border_width>
@@ -327,20 +327,20 @@
   </Relationships>
  </Item>
  <Item type="Field" id="907164D7ABDB4DF893546F645A5C66C1" action="edit">
-  <!-- Please note: this AML depends on the "pev_ItemType_PropertyRule" ItemType. Please make sure it exists before running this. -->
+  <!-- Please note: this AML depends on the "pav_ItemType_PropertyRule" ItemType. Please make sure it exists before running this. -->
   <propertytype_id>
    <Item type="Property" action="get" select="id">
     <name>owned_by_id</name>
-    <source_id type="ItemType" keyed_name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id type="ItemType" keyed_name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
    </Item>
   </propertytype_id>
  </Item>
  <Item type="Field" id="09892A85E6BE4BA4936583EB706AAEC2" action="edit">
-  <!-- Please note: this AML depends on the "pev_ItemType_PropertyRule" ItemType. Please make sure it exists before running this. -->
+  <!-- Please note: this AML depends on the "pav_ItemType_PropertyRule" ItemType. Please make sure it exists before running this. -->
   <propertytype_id>
    <Item type="Property" action="get" select="id">
     <name>state</name>
-    <source_id type="ItemType" keyed_name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id type="ItemType" keyed_name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
    </Item>
   </propertytype_id>
  </Item>
