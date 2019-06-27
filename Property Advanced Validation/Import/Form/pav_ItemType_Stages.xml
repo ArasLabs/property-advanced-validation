@@ -4,12 +4,12 @@
   <height>180</height>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
   <width>699</width>
-  <name>pev_ItemType_Stages</name>
+  <name>pav_ItemType_Stages</name>
   <Relationships>
    <Item type="Body" id="44FAC30B0E0E4BCD939389A4515784A7" action="add">
     <bg_color>#FFFFFF</bg_color>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="Form">5AB61DA2601C4CBCA12A19A1D3F33637</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="Form">5AB61DA2601C4CBCA12A19A1D3F33637</source_id>
     <Relationships>
      <Item type="Field" id="127E608BF93F426D8D5279253281CFD0" action="add">
       <border_width>0</border_width>
@@ -128,11 +128,11 @@
   </Relationships>
  </Item>
  <Item type="Field" id="D7E419813CC749FBBE70F7E22C611931" action="edit">
-  <!-- Please note: this AML depends on the "pev_ItemType_Stages" ItemType. Please make sure it exists before running this. -->
+  <!-- Please note: this AML depends on the "pav_ItemType_Stages" ItemType. Please make sure it exists before running this. -->
   <propertytype_id>
    <Item type="Property" action="get" select="id">
     <name>owned_by_id</name>
-    <source_id type="ItemType" keyed_name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id type="ItemType" keyed_name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
    </Item>
   </propertytype_id>
  </Item>
