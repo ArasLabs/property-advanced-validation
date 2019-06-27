@@ -5,7 +5,7 @@
   <enforce_discovery>1</enforce_discovery>
   <hide_where_used>0</hide_where_used>
   <implementation_type>table</implementation_type>
-  <instance_data>PEV_ITEMTYPE_PROPERTYRULE</instance_data>
+  <instance_data>PAV_ITEMTYPE_PROPERTYRULE</instance_data>
   <is_dependent>0</is_dependent>
   <is_relationship>0</is_relationship>
   <is_versionable>0</is_versionable>
@@ -19,7 +19,7 @@
   <structure_view>tabs on</structure_view>
   <unlock_on_logout>0</unlock_on_logout>
   <use_src_access>0</use_src_access>
-  <name>pev_ItemType_PropertyRule</name>
+  <name>pav_ItemType_PropertyRule</name>
   <Relationships>
    <Item type="Property" id="051EFC8BB8D74888BCA3612E52BD4E38" action="add">
     <column_alignment>left</column_alignment>
@@ -37,7 +37,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>250</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <track_history>0</track_history>
     <name>custom_method</name>
    </Item>
@@ -56,7 +56,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>301</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>255</stored_length>
     <track_history>0</track_history>
     <name>default_error_message</name>
@@ -75,7 +75,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>200</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>255</stored_length>
     <track_history>0</track_history>
     <name>description</name>
@@ -95,7 +95,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>300</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>160</stored_length>
     <track_history>0</track_history>
     <name>error_message_header</name>
@@ -130,14 +130,14 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>11</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <track_history>0</track_history>
     <name>item_type_label</name>
    </Item>
    <Item type="Property" id="19A40BD5B05547A9854C325BAEA50312" action="add">
     <column_alignment>left</column_alignment>
     <column_width>150</column_width>
-    <data_source keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</data_source>
+    <data_source keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</data_source>
     <data_type>item</data_type>
     <is_hidden>0</is_hidden>
     <is_hidden2>0</is_hidden2>
@@ -150,7 +150,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>80</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <track_history>0</track_history>
     <name>item_type_stages_id</name>
    </Item>
@@ -168,14 +168,14 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>3072</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>255</stored_length>
     <track_history>0</track_history>
     <name>success_message</name>
    </Item>
    <Item type="View" id="38A62D33F5544575A9024CF23E1464C6" action="add">
     <client>js</client>
-    <related_id keyed_name="pev_ItemType_PropertyRule" type="Form">D92F42B1B7434CAB9ED362337090558B</related_id>
+    <related_id keyed_name="pav_ItemType_PropertyRule" type="Form">D92F42B1B7434CAB9ED362337090558B</related_id>
     <role keyed_name="World" type="Identity">
      <Item type="Identity" action="get" select="id">
       <name>World</name>
@@ -183,43 +183,43 @@
     </role>
     <show_ssvc>0</show_ssvc>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <type>default</type>
    </Item>
    <Item type="Server Event" id="151ED1FAA72640EFB4C36F03B50BA932" action="add">
     <event_version>version_1</event_version>
     <is_required>0</is_required>
-    <related_id keyed_name="pev_setKN_ItemType_PropertyRule" type="Method">
+    <related_id keyed_name="pav_setKN_ItemType_PropertyRule" type="Method">
      <Item type="Method" action="get" select="id">
-      <name>pev_setKN_ItemType_PropertyRule</name>
+      <name>pav_setKN_ItemType_PropertyRule</name>
      </Item>
     </related_id>
     <server_event>GetKeyedName</server_event>
     <sort_order>10</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
    </Item>
    <Item type="ItemType Life Cycle" id="F1BD9C872DE34EE482F739E8D5973467" action="add">
-    <related_id keyed_name="pev_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</related_id>
+    <related_id keyed_name="pav_ItemType_PropertyRule" type="Life Cycle Map">55B0961648C74686A74E1FFE3B09C2BC</related_id>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
    </Item>
    <Item type="TOC Access" id="EF68CCF2937840A4A3A4C102D075E944" action="add">
     <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <category>Administration/Configuration</category>
    </Item>
    <Item type="Can Add" id="32B7E0DFD5424DA3B9C8D79E0B48B7CD" action="add">
     <can_add>1</can_add>
     <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
     <sort_order>10</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
    </Item>
    <Item type="Allowed Permission" id="E66C0D8E19804516BAE5CB5BCC19E8FD" action="add">
     <is_default>1</is_default>
     <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
     <sort_order>10</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
    </Item>
   </Relationships>
  </Item>
@@ -239,7 +239,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>13</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>255</stored_length>
     <track_history>0</track_history>
     <name>item_type_classification</name>
@@ -261,7 +261,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>10</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>32</stored_length>
     <track_history>0</track_history>
     <name>item_type_id</name>
@@ -282,7 +282,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>220</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <track_history>0</track_history>
     <name>owned_by_id</name>
    </Item>
@@ -300,7 +300,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>1</readonly>
     <sort_order>15</sort_order>
-    <source_id keyed_name="pev_ItemType_PropertyRule" type="ItemType" name="pev_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
+    <source_id keyed_name="pav_ItemType_PropertyRule" type="ItemType" name="pav_ItemType_PropertyRule">F7CF4987F3DA4E748E51AB871CD4B86A</source_id>
     <stored_length>32</stored_length>
     <track_history>0</track_history>
     <name>state</name>
