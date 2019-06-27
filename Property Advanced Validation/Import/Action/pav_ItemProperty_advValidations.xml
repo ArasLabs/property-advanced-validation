@@ -3,14 +3,14 @@
   <item_query>&lt;Item type="{@type}" id="{@id}" levels= "1" action="get" /&gt;</item_query>
   <label xml:lang="en">Status Completeness Check</label>
   <location>client</location>
-  <method keyed_name="pev_ItemProperty_extValidation_A" type="Method">
+  <method keyed_name="pav_ItemProperty_advValidation_A" type="Method">
    <Item type="Method" action="get" select="id">
-    <name>pev_ItemProperty_extValidation_A</name>
+    <name>pav_ItemProperty_advValidation_A</name>
    </Item>
   </method>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
   <target>none</target>
   <type>item</type>
-  <name>pev_ItemProperty_extValidations</name>
+  <name>pav_ItemProperty_advValidations</name>
  </Item>
 </AML>
