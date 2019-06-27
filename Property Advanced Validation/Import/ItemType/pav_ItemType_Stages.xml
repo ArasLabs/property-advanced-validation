@@ -5,7 +5,7 @@
   <enforce_discovery>1</enforce_discovery>
   <hide_where_used>0</hide_where_used>
   <implementation_type>table</implementation_type>
-  <instance_data>PEV_ITEMTYPE_STAGES</instance_data>
+  <instance_data>PAV_ITEMTYPE_STAGES</instance_data>
   <is_dependent>0</is_dependent>
   <is_relationship>0</is_relationship>
   <is_versionable>0</is_versionable>
@@ -19,7 +19,7 @@
   <structure_view>tabs on</structure_view>
   <unlock_on_logout>0</unlock_on_logout>
   <use_src_access>0</use_src_access>
-  <name>pev_ItemType_Stages</name>
+  <name>pav_ItemType_Stages</name>
   <Relationships>
    <Item type="Property" id="C891F42A5D8041CDA7F017D899116CDD" action="add">
     <column_alignment>left</column_alignment>
@@ -35,7 +35,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>200</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
     <stored_length>255</stored_length>
     <track_history>0</track_history>
     <name>description</name>
@@ -70,13 +70,13 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>11</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
     <track_history>0</track_history>
     <name>item_type_label</name>
    </Item>
    <Item type="View" id="AAEB1153F7D1492EA36561164FFBFA90" action="add">
     <client>js</client>
-    <related_id keyed_name="pev_ItemType_Stages" type="Form">5AB61DA2601C4CBCA12A19A1D3F33637</related_id>
+    <related_id keyed_name="pav_ItemType_Stages" type="Form">5AB61DA2601C4CBCA12A19A1D3F33637</related_id>
     <role keyed_name="World" type="Identity">
      <Item type="Identity" action="get" select="id">
       <name>World</name>
@@ -84,38 +84,38 @@
     </role>
     <show_ssvc>0</show_ssvc>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
     <type>default</type>
    </Item>
    <Item type="Server Event" id="3AEEE175BBD54742A90D8A44E8A04A8F" action="add">
     <event_version>version_1</event_version>
     <is_required>0</is_required>
-    <related_id keyed_name="pev_setKN_ItemType_Stages" type="Method">
+    <related_id keyed_name="pav_setKN_ItemType_Stages" type="Method">
      <Item type="Method" action="get" select="id">
-      <name>pev_setKN_ItemType_Stages</name>
+      <name>pav_setKN_ItemType_Stages</name>
      </Item>
     </related_id>
     <server_event>GetKeyedName</server_event>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
    </Item>
    <Item type="TOC Access" id="FC6F9F07317A4D46AFEA56AF9C59BA7E" action="add">
     <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
     <category>Administration/Configuration</category>
    </Item>
    <Item type="Can Add" id="FAE02CED94854A01A13EA3F3F0ECE28B" action="add">
     <can_add>1</can_add>
     <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
    </Item>
    <Item type="Allowed Permission" id="2394F93C752F43019811BFF065ED7D37" action="add">
     <is_default>1</is_default>
     <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
     <sort_order>128</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
    </Item>
   </Relationships>
  </Item>
@@ -138,7 +138,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>10</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
     <stored_length>32</stored_length>
     <track_history>0</track_history>
     <name>item_type_id</name>
@@ -159,7 +159,7 @@
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>100</sort_order>
-    <source_id keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
+    <source_id keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</source_id>
     <track_history>0</track_history>
     <name>owned_by_id</name>
    </Item>
