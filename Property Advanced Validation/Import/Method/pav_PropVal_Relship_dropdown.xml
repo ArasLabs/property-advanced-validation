@@ -58,6 +58,6 @@ var field = grid.columns_Experimental.get(targetColumnIndex, "name");
 gridApplet.columns_Experimental.set( field, "comboList", idArray, labelArray); ]]></method_code>
   <method_type>JavaScript</method_type>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
-  <name>pev_PropVal_Relship_dropdown</name>
+  <name>pav_PropVal_Relship_dropdown</name>
  </Item>
 </AML>
