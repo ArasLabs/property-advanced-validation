@@ -27,6 +27,6 @@ Filter["name"]={filterValue:LCFilter, isFilterFixed:false};
 return Filter;]]></method_code>
   <method_type>JavaScript</method_type>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
-  <name>pev_PropVal_LCFilter</name>
+  <name>pav_PropVal_LCFilter</name>
  </Item>
 </AML>
