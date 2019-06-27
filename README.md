@@ -24,8 +24,6 @@
 
 * Property Validation rules must be set to status "Active" (life cycle) to take effect.
 
-  > Note: The word <u>advanced</u> has been used in this file to describe the properties as opposed to <u>extended</u> since this is close to the description of xProperties in the Aras system. However, all parts of the package and documentation could not accommodate this update.
-
 ## History
 
 | Version    | Comments                                                     |
