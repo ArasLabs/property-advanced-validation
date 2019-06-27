@@ -10,6 +10,6 @@ this.setProperty("keyed_name", KN);
 
 return this;]]></method_code>
   <method_type>C#</method_type>
-  <name>pev_setKN_ItemType_Stages</name>
+  <name>pav_setKN_ItemType_Stages</name>
  </Item>
 </AML>
