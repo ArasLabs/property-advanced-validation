@@ -19,10 +19,10 @@ relItm.loadAML(temp.node.xml);
 var lifcCylceId = relItm.getProperty("item_life_cycle_id","");
 
 // try to read from loaded parent item
-var listValuesItems = parent.thisItem.getRelationships("pev_ItemType_Stages_Mapping");
+var listValuesItems = parent.thisItem.getRelationships("pav_ItemType_Stages_Mapping");
 if (listValuesItems === null || listValuesItems.getItemCount()<1 ) {
     // Get defined ItemType stages from relationship. To be used as list values
-    var aml = "<Item type='pev_ItemType_Stages_Mapping' action='get' >";
+    var aml = "<Item type='pav_ItemType_Stages_Mapping' action='get' >";
     aml += "<source_id>"+parent.thisItem.getProperty("item_type_stages_id","invalid")+"</source_id>"; 
     aml += "</Item>"; 
     var listValuesItems = top.aras.newIOMItem("");
@@ -58,6 +58,6 @@ var field = grid.columns_Experimental.get(targetColumnIndex, "name");
 gridApplet.columns_Experimental.set( field, "comboList", idArray, labelArray); ]]></method_code>
   <method_type>JavaScript</method_type>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
-  <name>pev_PropVal_ITStages_dropdown</name>
+  <name>pav_PropVal_ITStages_dropdown</name>
  </Item>
 </AML>
