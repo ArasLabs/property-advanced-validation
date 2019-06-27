@@ -19,7 +19,7 @@ relItm.loadAML(temp.node.xml);
 var lifcCylceId = relItm.getProperty("item_life_cycle_id","");
 
 // try to read from loaded parent item
-var listValuesItems = parent.thisItem.getRelationships("pev_ItemType_Stages_Mapping");
+var listValuesItems = parent.thisItem.getRelationships("pav_ItemType_Stages_Mapping");
 if (listValuesItems.isError()||listValuesItems.getItemCount()<1 ) {
     top.aras.AlertError("Item Type Stages (& Mapping) are not defined !");
     return;
@@ -46,6 +46,6 @@ gridApplet.cells(relationshipID,targetColumnIndex).setEditType(3);  // MultiVal 
 var field = grid.columns_Experimental.get(targetColumnIndex, "name");
 gridApplet.columns_Experimental.set( field, "comboList", idArray, labelArray); ]]></method_code>
   <method_type>JavaScript</method_type>
-  <name>pev_PropVal_PrevStages_dropdown</name>
+  <name>pav_PropVal_PrevStages_dropdown</name>
  </Item>
 </AML>
