@@ -1,6 +1,6 @@
 ﻿<AML>
  <Item type="Method" id="D14BFE5A636841A9999353DE273E1C3F" action="add">
-  <comments>onAfterUpdate. extended Validation - based on configured Rules - optional: onBeforePromote AND onAfterPromote</comments>
+  <comments>onAfterUpdate. advanced Validation - based on configured Rules - optional: onBeforePromote AND onAfterPromote</comments>
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
   <method_code><![CDATA[// can be used on any ItemType
 // Server Events:
@@ -45,7 +45,7 @@ else {
 // get "Active" validation rules for this ItemType
 string itemClassification = thisItem.getProperty("classification","");
 string aml = "";
-aml += "<Item type='pev_ItemType_PropertyRule' action='get' ";
+aml += "<Item type='pav_ItemType_PropertyRule' action='get' ";
 aml += "select='item_type_id,item_type_label,item_type_stages_id,default_error_message,error_message_header,success_message,description'>";
 aml += "  <state>Active</state>";
 if (itemClassification != "") {
@@ -56,7 +56,7 @@ aml += "    <Item type='ItemType' action='get' select='id' ><name>"+thisItem.get
 aml += "    </Item>";
 aml += "  </item_type_id>";
 aml += "  <Relationships>";
-aml += "   <Item type='pev_Property_ValidationRule' action='get' />";
+aml += "   <Item type='pav_Property_ValidationRule' action='get' />";
 aml += "  </Relationships>";
 aml += "</Item>";
 
@@ -68,10 +68,10 @@ if (itemTypePropRule.getItemCount() <= 0) {return this;}
 string item_type_stages_id = itemTypePropRule.getProperty("item_type_stages_id","invalid");
 if (item_type_stages_id == "") {return this;}
 
-aml = "<Item type='pev_ItemType_Stages' action='get' id='"+item_type_stages_id+"' ";
+aml = "<Item type='pav_ItemType_Stages' action='get' id='"+item_type_stages_id+"' ";
 aml += "select='item_type_id,name'>";
 aml += "  <Relationships>";
-aml += "   <Item type='pev_ItemType_Stages_Mapping' action='get' />";
+aml += "   <Item type='pav_ItemType_Stages_Mapping' action='get' />";
 aml += "  </Relationships>";
 aml += "</Item>";
 Item itemTypeStagesMappings = this.newItem("");
@@ -93,7 +93,7 @@ if (itemStateLabel == "") {itemStateLabel = itemState;}
 string aggregatedErrorMessages = "";
 
 // run validation on actual propValues from thisItem
-Item propValidationRules = itemTypePropRule.getRelationships("pev_Property_ValidationRule");
+Item propValidationRules = itemTypePropRule.getRelationships("pav_Property_ValidationRule");
 
 for (int i=0; i<propValidationRules.getItemCount(); i++) {
 	Item propValidationRule = propValidationRules.getItemByIndex(i);
@@ -135,7 +135,7 @@ foreach (string relshipName in relshipNames) {
 	relshipItems.loadAML(qry);
 	relshipItems = relshipItems.apply();
 	
-	propValidationRules = itemTypePropRule.getItemsByXPath("//Item[@type='pev_Property_ValidationRule' and item_relationship_name='"+relshipName+"']");
+	propValidationRules = itemTypePropRule.getItemsByXPath("//Item[@type='pav_Property_ValidationRule' and item_relationship_name='"+relshipName+"']");
 	string errMessage = "";
 	for (int i=0; i<propValidationRules.getItemCount(); i++) {
 		Item propValidationRule = propValidationRules.getItemByIndex(i);
@@ -180,7 +180,7 @@ string getLCstatesOfItemTypeStages (string ITstages, Item itemTypePropRule, Item
 	string[] ITStages_array = ITstages.Split(',');
 	for (int i=0; i<ITStages_array.Length; i++) {
 	    if (ITStages_array[i] != "" ) {
-    		Item ITStatesMapping = itemTypeStagesMappings.getItemsByXPath("//Item[@type='pev_ItemType_Stages_Mapping' and name='"+ITStages_array[i]+"']");
+    		Item ITStatesMapping = itemTypeStagesMappings.getItemsByXPath("//Item[@type='pav_ItemType_Stages_Mapping' and name='"+ITStages_array[i]+"']");
     		
     		if (ITStatesMapping.getItemCount() == 1) {	
         		string[] ITlcStates_array = ITStatesMapping.getProperty("life_cycle_states","").Split(',');
@@ -399,6 +399,6 @@ string resolveMessage (string errorMessageTemplate, string itemTypeLabel, string
 void endOfMethod() {]]></method_code>
   <method_type>C#</method_type>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
-  <name>pev_ItemProperty_extValidations</name>
+  <name>pav_ItemProperty_advValidations</name>
  </Item>
 </AML>
