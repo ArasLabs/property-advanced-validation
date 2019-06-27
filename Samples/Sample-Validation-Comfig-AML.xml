@@ -1,5 +1,5 @@
 <!--
-Property Extend Validations:
+Property Advanced Validations:
 a configuration sample for item type "Part"
 
 -->
@@ -8,9 +8,9 @@ a configuration sample for item type "Part"
 Query to read item stages definitions by given ID
 
 <AML>
-<Item type='pev_ItemType_Stages' action='get' id='49E992BD9A264E4AB9CDC2ABF6F1A9AF' select='item_type_id' >
+<Item type='pav_ItemType_Stages' action='get' id='49E992BD9A264E4AB9CDC2ABF6F1A9AF' select='item_type_id' >
 <Relationships>
- <Item type='pev_ItemType_Stages_Mapping' action='get' select='item_life_cycle_id,label,life_cycle_states,name,sort_order' >
+ <Item type='pav_ItemType_Stages_Mapping' action='get' select='item_life_cycle_id,label,life_cycle_states,name,sort_order' >
  </Item>
 </Relationships>
 </Item>
@@ -22,73 +22,73 @@ Query to read item stages definitions by given ID
 Query to read property validation rules by given ID
 
 <AML>
-<Item type='pev_ItemType_PropertyRule' action='get' id='54EE9507354B42CF88329731D66BD032' select='item_type_id,item_type_label,item_type_stages_id,default_error_message,error_message_header,success_message,description'>
+<Item type='pav_ItemType_PropertyRule' action='get' id='54EE9507354B42CF88329731D66BD032' select='item_type_id,item_type_label,item_type_stages_id,default_error_message,error_message_header,success_message,description'>
 <Relationships>
-<Item type='pev_Property_ValidationRule' action='get' select='check_promotion_to_stages,item_life_cycle_id,item_property_datapattern,item_property_datatype,item_property_id,item_property_label,item_property_tab_label,item_relationship_name,item_type_stages,sort_order,error_message'>
+<Item type='pav_Property_ValidationRule' action='get' select='check_promotion_to_stages,item_life_cycle_id,item_property_datapattern,item_property_datatype,item_property_id,item_property_label,item_property_tab_label,item_relationship_name,item_type_stages,sort_order,error_message'>
 </Item>
 </Relationships>
 </Item>
 </AML>
 -->
 <AML>
-      <Item action="merge" type="pev_ItemType_Stages" typeId="0FB358B248D5438AAD74BDCABC06246B" id="49E992BD9A264E4AB9CDC2ABF6F1A9AF">
-        <id keyed_name="ItemStages: Part" type="pev_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</id>
+      <Item action="merge" type="pav_ItemType_Stages" typeId="0FB358B248D5438AAD74BDCABC06246B" id="49E992BD9A264E4AB9CDC2ABF6F1A9AF">
+        <id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</id>
         <item_type_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</item_type_id>
         <Relationships>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="CB1D96E32AD743C1A9A3C31ECA408545">
-            <id keyed_name="CB1D96E32AD743C1A9A3C31ECA408545" type="pev_ItemType_Stages_Mapping">CB1D96E32AD743C1A9A3C31ECA408545</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="CB1D96E32AD743C1A9A3C31ECA408545">
+            <id keyed_name="CB1D96E32AD743C1A9A3C31ECA408545" type="pav_ItemType_Stages_Mapping">CB1D96E32AD743C1A9A3C31ECA408545</id>
             <item_life_cycle_id keyed_name="Part" type="Life Cycle Map">E337EBF706FA4172B2CD1A6487E00875</item_life_cycle_id>
             <label xml:lang="en">In Work</label>
             <life_cycle_states>In Change,Manual Change,Preliminary</life_cycle_states>
             <name>In Work</name>
             <sort_order>1</sort_order>
-            <source_id keyed_name="ItemStages: Part" type="pev_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
+            <source_id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
           </Item>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="D889821AF9514725B6E9090ACF0BF985">
-            <id keyed_name="D889821AF9514725B6E9090ACF0BF985" type="pev_ItemType_Stages_Mapping">D889821AF9514725B6E9090ACF0BF985</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="D889821AF9514725B6E9090ACF0BF985">
+            <id keyed_name="D889821AF9514725B6E9090ACF0BF985" type="pav_ItemType_Stages_Mapping">D889821AF9514725B6E9090ACF0BF985</id>
             <item_life_cycle_id keyed_name="Part" type="Life Cycle Map">E337EBF706FA4172B2CD1A6487E00875</item_life_cycle_id>
             <label xml:lang="en">In Review</label>
             <life_cycle_states>In Review</life_cycle_states>
             <name>In Review</name>
             <sort_order>2</sort_order>
-            <source_id keyed_name="ItemStages: Part" type="pev_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
+            <source_id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
           </Item>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="635DABF84F9349569B9474B982C49ADF">
-            <id keyed_name="635DABF84F9349569B9474B982C49ADF" type="pev_ItemType_Stages_Mapping">635DABF84F9349569B9474B982C49ADF</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="635DABF84F9349569B9474B982C49ADF">
+            <id keyed_name="635DABF84F9349569B9474B982C49ADF" type="pav_ItemType_Stages_Mapping">635DABF84F9349569B9474B982C49ADF</id>
             <item_life_cycle_id keyed_name="Part" type="Life Cycle Map">E337EBF706FA4172B2CD1A6487E00875</item_life_cycle_id>
             <label xml:lang="en">Released</label>
             <life_cycle_states>Released,Superseded</life_cycle_states>
             <name>Released</name>
             <sort_order>3</sort_order>
-            <source_id keyed_name="ItemStages: Part" type="pev_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
+            <source_id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
           </Item>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="D4EAACE313AB4DE2B836F6EDDC8A4702">
-            <id keyed_name="D4EAACE313AB4DE2B836F6EDDC8A4702" type="pev_ItemType_Stages_Mapping">D4EAACE313AB4DE2B836F6EDDC8A4702</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="D4EAACE313AB4DE2B836F6EDDC8A4702">
+            <id keyed_name="D4EAACE313AB4DE2B836F6EDDC8A4702" type="pav_ItemType_Stages_Mapping">D4EAACE313AB4DE2B836F6EDDC8A4702</id>
             <item_life_cycle_id keyed_name="Part" type="Life Cycle Map">E337EBF706FA4172B2CD1A6487E00875</item_life_cycle_id>
             <label xml:lang="en">Obsolete</label>
             <life_cycle_states>Obsolete</life_cycle_states>
             <name>Obsolete</name>
             <sort_order>4</sort_order>
-            <source_id keyed_name="ItemStages: Part" type="pev_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
+            <source_id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</source_id>
           </Item>
         </Relationships>
       </Item>
 
 
-      <Item action="merge" type="pev_ItemType_PropertyRule" typeId="F7CF4987F3DA4E748E51AB871CD4B86A" id="54EE9507354B42CF88329731D66BD032">
+      <Item action="merge" type="pav_ItemType_PropertyRule" typeId="F7CF4987F3DA4E748E51AB871CD4B86A" id="54EE9507354B42CF88329731D66BD032">
         <default_error_message xml:lang="en">The value of Property '{propLabel}' is missing or incorrect ! (Value: '{propValue}', expected Values: '{propExpectedValues}')</default_error_message>
         <description is_null="1" />
         <error_message_header xml:lang="en">Data Completeness check for '{itemTypeLabel} ({itemKeyedName})' in status '{itemStateLabel}':</error_message_header>
-        <id keyed_name="Validations: Part" type="pev_ItemType_PropertyRule">54EE9507354B42CF88329731D66BD032</id>
+        <id keyed_name="Validations: Part" type="pav_ItemType_PropertyRule">54EE9507354B42CF88329731D66BD032</id>
         <item_type_label xml:lang="en">Part</item_type_label>
-        <item_type_stages_id keyed_name="ItemStages: Part" type="pev_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</item_type_stages_id>
+        <item_type_stages_id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</item_type_stages_id>
         <success_message xml:lang="en">All completeness checks for state '{itemStateLabel}' have passed.</success_message>
         <item_type_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</item_type_id>
         <Relationships>
-          <Item action="merge" type="pev_Property_ValidationRule" typeId="C5A66BFABEC246C7A1E35C4794396374" id="7E0991062A23406BA661C64DE868E952">
+          <Item action="merge" type="pav_Property_ValidationRule" typeId="C5A66BFABEC246C7A1E35C4794396374" id="7E0991062A23406BA661C64DE868E952">
             <check_promotion_to_stages>1</check_promotion_to_stages>
             <error_message is_null="1" xml:lang="en" />
-            <id keyed_name="7E0991062A23406BA661C64DE868E952" type="pev_Property_ValidationRule">7E0991062A23406BA661C64DE868E952</id>
+            <id keyed_name="7E0991062A23406BA661C64DE868E952" type="pav_Property_ValidationRule">7E0991062A23406BA661C64DE868E952</id>
             <item_life_cycle_id is_null="1" />
             <item_property_datapattern is_null="1" />
             <item_property_datatype>item</item_property_datatype>
@@ -98,7 +98,7 @@ Query to read property validation rules by given ID
             <item_relationship_name></item_relationship_name>
             <item_type_stages>In Work,In Review,Released</item_type_stages>
             <sort_order>1</sort_order>
-            <source_id keyed_name="Validations: Part" type="pev_ItemType_PropertyRule">54EE9507354B42CF88329731D66BD032</source_id>
+            <source_id keyed_name="Validations: Part" type="pav_ItemType_PropertyRule">54EE9507354B42CF88329731D66BD032</source_id>
           </Item>
         </Relationships>
       </Item>
