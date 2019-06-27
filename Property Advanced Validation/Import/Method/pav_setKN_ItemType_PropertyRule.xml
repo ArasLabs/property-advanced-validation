@@ -12,6 +12,6 @@ this.setProperty("keyed_name", KN);
 return this;]]></method_code>
   <method_type>C#</method_type>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
-  <name>pev_setKN_ItemType_PropertyRule</name>
+  <name>pav_setKN_ItemType_PropertyRule</name>
  </Item>
 </AML>
