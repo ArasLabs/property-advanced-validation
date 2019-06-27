@@ -16,6 +16,6 @@ Filter["source_id"]={filterValue:itemTypeName, isFilterFixed:false};
 return Filter;]]></method_code>
   <method_type>JavaScript</method_type>
   <owned_by_id>0DF8229F4FA144C3B114334A64FBEF38</owned_by_id>
-  <name>pev_PropVal_PropFilter</name>
+  <name>pav_PropVal_PropFilter</name>
  </Item>
 </AML>
