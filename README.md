@@ -68,9 +68,9 @@
 - [ ] In category **Property Validation Rules**:  add rules definitions for ItemType to add advanced property validations to (connected to ItemType Stages).
     - [ ] Promote rules to <u>Active</u> (**If you skip this step the rules will not be in force!**)
 
-- [ ] For ItemType to add advanced Property validations to add method "pev_ItemProperty_extValidations" to Server Event:  "onAfterUpdate"
-    - [ ] For ItemType to add advanced Property validations to add action "pev_ItemProperty_extValidations"
-    - [ ] For ItemType to add advanced Property validations to add method "pev_ItemProperty_extValidations" to Server Event:  "onBeforePromote"  AND "onAfterPromote", if validation shall be done on life cycle promote, as well!
+- [ ] For ItemType to add advanced Property validations to add method "pav_ItemProperty_advValidations" to Server Event:  "onAfterUpdate"
+    - [ ] For ItemType to add advanced Property validations to add action "pav_ItemProperty_advValidations"
+    - [ ] For ItemType to add advanced Property validations to add method "pav_ItemProperty_advValidations" to Server Event:  "onBeforePromote"  AND "onAfterPromote", if validation shall be done on life cycle promote, as well!
 
 ## Usage
 
@@ -101,7 +101,7 @@
     1. OnAfterPromote
     2. OnAfterUpdate
     3. OnBeforePromote
-14. Also, set the following <u>Action</u>: pev_ItemProperty_extValidations
+14. Also, set the following <u>Action</u>: pav_ItemProperty_advValidations
 15. Save/Unlock/Close the **ItemType**.
 16. Test Validation.
     1. Checks will run on Promotions, and after the item is edited, before Save is applied.
