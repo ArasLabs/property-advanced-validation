@@ -74,14 +74,12 @@ Query to read property validation rules by given ID
         </Relationships>
       </Item>
 
-      <!-- You will need to add an ID with correct permissions (Innovator Admin, etc.) to the line for owned_by_id; you can find this by looking for the properties
-      on a User Item and using the Copy ID button-->
+      <!-- You will need to turn off the required field for the owned_by_id property in the Item definition for this import to succeed, you can turn it back on afterwards -->
       <Item action="merge" type="pav_ItemType_PropertyRule" typeId="F7CF4987F3DA4E748E51AB871CD4B86A" id="54EE9507354B42CF88329731D66BD032">
         <default_error_message xml:lang="en">The value of Property '{propLabel}' is missing or incorrect ! (Value: '{propValue}', expected Values: '{propExpectedValues}')</default_error_message>
         <description is_null="1" />
         <error_message_header xml:lang="en">Data Completeness check for '{itemTypeLabel} ({itemKeyedName})' in status '{itemStateLabel}':</error_message_header>
         <id keyed_name="Validations: Part" type="pav_ItemType_PropertyRule">54EE9507354B42CF88329731D66BD032</id>
-        <owned_by_id></owned_by_id> <!--add ID inside these tags -->
         <item_type_label xml:lang="en">Part</item_type_label>
         <item_type_stages_id keyed_name="ItemStages: Part" type="pav_ItemType_Stages">49E992BD9A264E4AB9CDC2ABF6F1A9AF</item_type_stages_id>
         <success_message xml:lang="en">All completeness checks for state '{itemStateLabel}' have passed.</success_message>
