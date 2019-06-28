@@ -61,49 +61,39 @@
 - [ ] Log on as **root** and use options <u>Merge</u> and <u>Thorough</u> for all steps
   - [ ] Import the `imports.mf` file from the Imports folder.
 
-### Post Installation Steps - Advanced Property Validations
-
-- [ ] Log in as <u>admin</u> and expand to **Administration > Configuration**
-- [ ] In category **ItemType Stages Definition**:  add stages definitions for ItemType to add advanced property validations to.
-- [ ] In category **Property Validation Rules**:  add rules definitions for ItemType to add advanced property validations to (connected to ItemType Stages).
-    - [ ] Promote rules to <u>Active</u> (**If you skip this step the rules will not be in force!**)
-
-- [ ] For ItemType to add advanced Property validations to add method "pav_ItemProperty_advValidations" to Server Event:  "onAfterUpdate"
-    - [ ] For ItemType to add advanced Property validations to add action "pav_ItemProperty_advValidations"
-    - [ ] For ItemType to add advanced Property validations to add method "pav_ItemProperty_advValidations" to Server Event:  "onBeforePromote"  AND "onAfterPromote", if validation shall be done on life cycle promote, as well!
-
 ## Usage
 
-1. Open **ItemType Stages Definition**. Create a <u>New Item</u>.
-2. Select the existing ItemType you wish to apply the rules to.
-3. For Each Definition:
+1. Log in as <u>admin</u> and expand to **Administration > Configuration**
+2. Open **ItemType Stages Definition**. Create a <u>New Item</u>.
+3. Select the existing ItemType you wish to apply the rules to.
+4. For Each Definition:
    1. Select the Itemtype you wish to pull the LC states from. 
    2. Map existing Lifecycle states to your custom stage names (Multi-lingual capable). This is a Many to One mapping.
    3. (Optional) Previous stages are used if you wish to define what the incoming state should be for the check. [For instance, if you have two branches coming into a state and you only want the validation to run if it came from Branch B and not Branch A.]
-4. Save/Unlock/Close the record.
-5. Open  **Property Validation Rules**. Create a <u>New Item</u>.
-6. Select the existing ItemType you wish to apply the rules to.
-7. Select the stage definition created previously.
-8. Select an Owner.
-9. (Optional) Alter the default messages if you wish. Supported variables are:
+5. Save/Unlock/Close the record.
+6. Open  **Property Validation Rules**. Create a <u>New Item</u>.
+7. Select the existing ItemType you wish to apply the rules to.
+8. Select the stage definition created previously.
+9. Select an Owner.
+10. (Optional) Alter the default messages if you wish. Supported variables are:
    - {propLabel}
    - {propValue}
    - {itemKeyedName}
    - {itemTypeLabel}
    - {itemStateLabel}
-10. Add the properties to be validated.
+11. Add the properties to be validated.
     1. Set expected values. (Default is *not null*.)
     2. Check if the property should be checked incoming from previous stages and stopped before getting to this stage if not valid.
     3. Set the stages to validate at (multi-select)
-11. **Save** and **Lock** the record.
-12. **Promote** the record to <u>Active</u>. (**If you do not do this, the rules will not be in force!**)
-13. For the **ItemType(s)** selected above, go to **ItemTypes** and set <u>Server Events</u> for the following Method: pev_ItemProperty_extValidations to the following Events:
+12. **Save** and **Lock** the record.
+13. **Promote** the record to <u>Active</u>. (**If you do not do this, the rules will not be in force!**)
+14. For the **ItemType(s)** selected above, go to **ItemTypes** and set <u>Server Events</u> for the following Method: pev_ItemProperty_extValidations to the following Events:
     1. OnAfterPromote
     2. OnAfterUpdate
     3. OnBeforePromote
-14. Also, set the following <u>Action</u>: pav_ItemProperty_advValidations
-15. Save/Unlock/Close the **ItemType**.
-16. Test Validation.
+15. Also, set the following <u>Action</u>: pav_ItemProperty_advValidations
+16. Save/Unlock/Close the **ItemType**.
+17. Test Validation.
     1. Checks will run on Promotions, and after the item is edited, before Save is applied.
 
 ## Contributing
