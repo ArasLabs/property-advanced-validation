@@ -10,7 +10,7 @@
 
 * "Stages" are defined as one or more possible "Life Cycle States" of an item.
 
-* A generic "Server Method" (pev_ItemProperty_extValidations) is provided to read the rules of the ItemType specific configurations and execute the checks and generate an error message listing missing or non-conforming property values.
+* A generic "Server Method" (pav_ItemProperty_advValidations) is provided to read the rules of the ItemType specific configurations and execute the checks and generate an error message listing missing or non-conforming property values.
 
 * This method must be connected to the "onAfterUpdate" events of ItemTypes to enable its advanced property validations. Note: on error of server methods "onAfterXX" a roll-back takes place anyways !!!
 
@@ -18,7 +18,7 @@
 
   * Note: The OnBeforePromote and OnAfterPromote events can be used to define a standard promote operation for an item regardless of the lifecycle transition selected by the user. Both events are triggered BEFORE the standard lifecycle pre/post events are invoked.
 
-* Also, an "Item Action" (pev_ItemProperty_extValidations) is provided to execute the validations upon user request to get a report of missing or non-conforming property values.
+* Also, an "Item Action" (pav_ItemProperty_advValidations) is provided to execute the validations upon user request to get a report of missing or non-conforming property values.
 
 * Error messages are template based and support multi-language configurations
 
