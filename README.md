@@ -26,15 +26,15 @@
 
 ## History
 
-| Version    | Comments                                                     |
-| ---------- | ------------------------------------------------------------ |
-| [v1.0.0]() | Initial version. (Replaces community project "[Life Cycle Based Props and Fields](<https://github.com/ArasLabs/lc-based-props-and-fields>)") |
+| Version                                                      | Comments                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [v1.0.0](https://github.com/ArasLabs/property-advanced-validation/releases/tag/v1.0.0) | Initial version. (Replaces community project "[Life Cycle Based Props and Fields](<https://github.com/ArasLabs/lc-based-props-and-fields>)") |
 
 #### Supported Aras Versions
 
-| Project    | Aras            |
-| ---------- | --------------- |
-| [v1.0.0]() | 11.0 SP14, SP15 |
+| Project                                                      | Aras            |
+| ------------------------------------------------------------ | --------------- |
+| [v1.0.0](https://github.com/ArasLabs/property-advanced-validation/releases/tag/v1.0.0) | 11.0 SP14, SP15 |
 
 ## Installation
 
